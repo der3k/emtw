@@ -4,11 +4,13 @@ import { action } from '@ember/object';
 
 export default class EditTaskComponent extends Component {
   @tracked
-  showAddComment = false;
+  show = {
+    addComment: false,
+  };
 
   @action
   addComment(comment) {
     console.log('Adding comment', this.args.task.id, comment);
-    this.showAddComment = false;
+    this.show = { ...this.show, addComment: false };
   }
 }

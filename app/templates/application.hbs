@@ -26,13 +26,13 @@
                   {{comment.comment}}
                 </div>
               {{/each}}
-              {{#if cmd.showAddComment}}
+              {{#if cmd.show.addComment}}
                 <cmd.AddComment />
               {{/if}}
             </td>
             <td><button
                 type="button"
-                {{on "click" (fn (mut cmd.showAddComment) true)}}
+                {{on "click" (fn (mut cmd.show.addComment) true)}}
               >Add Comment</button></td>
           </tr>
         </EditTask>
