@@ -5,9 +5,9 @@
     <thead>
       <tr>
         <th>Id</th>
-        <th>Summary</th>
-        <th>Description</th>
-        <th>Comments</th>
+        <th>Type</th>
+        <th>State</th>
+        <th>Detail</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -16,9 +16,14 @@
         <EditTask @task={{task}} as |cmd|>
           <tr>
             <td>{{task.id}}</td>
-            <td>{{task.summary}}</td>
-            <td>{{task.description}}</td>
+            <td>{{task.kind}}</td>
+            <td>{{task.state}}</td>
             <td>
+              {{#unless cmd.show.editDescription}}
+                {{task.description}}
+              {{else}}
+                <cmd.EditDescription />
+              {{/unless}}
               {{#each task.comments as |comment|}}
                 <div>
                   {{this.ts comment.createdAt}}
@@ -30,10 +35,16 @@
                 <cmd.AddComment />
               {{/if}}
             </td>
-            <td><button
+            <td>
+              <button
                 type="button"
                 {{on "click" (fn (mut cmd.show.addComment) true)}}
-              >Add Comment</button></td>
+              >Add Comment</button>
+              <button
+                type="button"
+                {{on "click" (fn (mut cmd.show.editDescription) true)}}
+              >Edit Description</button>
+            </td>
           </tr>
         </EditTask>
       {{/each}}

@@ -6,7 +6,8 @@ export default class ApplicationController extends Controller {
   @tracked tasks = [
     {
       id: '001',
-      summary: 'Task 1',
+      kind: 'Task',
+      state: 'New',
       description: 'Description of Task 1.',
       comments: [
         {
@@ -21,7 +22,8 @@ export default class ApplicationController extends Controller {
     },
     {
       id: '002',
-      summary: 'Task 2',
+      kind: 'Task',
+      state: 'In progress',
       description: 'Description of Task 2.',
       comments: [
         {
@@ -32,7 +34,8 @@ export default class ApplicationController extends Controller {
     },
     {
       id: '003',
-      summary: 'Task 3',
+      kind: 'Incident',
+      state: 'Closed',
       description: 'Description of Task 3.',
       comments: [
         {

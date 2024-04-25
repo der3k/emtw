@@ -5,6 +5,12 @@
       onSubmit=this.addComment
       onClose=(fn (mut this.show.addComment) false)
     )
+    EditDescription=(component
+      "edit-description"
+      content=this.args.task.description
+      onSubmit=this.updateDescription
+      onClose=(fn (mut this.show.editDescription) false)
+    )
     show=this.show
   )
   as |command|
