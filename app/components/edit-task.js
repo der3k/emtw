@@ -7,11 +7,6 @@ export default class EditTaskComponent extends Component {
   showAddComment = false;
 
   @action
-  toggleAddComment() {
-    this.showAddComment = !this.showAddComment;
-  }
-
-  @action
   addComment(comment) {
     console.log('Adding comment', this.args.task.id, comment);
     this.showAddComment = false;

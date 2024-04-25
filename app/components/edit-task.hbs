@@ -1,9 +1,11 @@
 {{#let
   (hash
     AddComment=(component
-      "add-comment" visible=this.showAddComment onSubmit=this.addComment
+      "add-comment"
+      onSubmit=this.addComment
+      onClose=(fn (mut this.showAddComment) false)
     )
-    toggleAddComment=this.toggleAddComment
+    showAddComment=this.showAddComment
   )
   as |command|
 }}
