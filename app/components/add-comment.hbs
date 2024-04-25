@@ -1,0 +1,4 @@
+{{#if this.args.visible}}
+  <Input @type="text" @value={{this.value}} />
+  <button {{on "click" this.submit}}>Add</button>
+{{/if}}

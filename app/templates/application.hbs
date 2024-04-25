@@ -1,5 +1,41 @@
 {{page-title "Emtw"}}
+<main class="p-2">
+  <h1 class="text-2xl font-medium mb-2">Tasks</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Summary</th>
+        <th>Description</th>
+        <th>Comments</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.tasks as |task|}}
+        <EditTask @task={{task}} as |cmd|>
+          <tr>
+            <td>{{task.id}}</td>
+            <td>{{task.summary}}</td>
+            <td>{{task.description}}</td>
+            <td>
+              {{#each task.comments as |comment|}}
+                <div>
+                  {{this.ts comment.createdAt}}
+                  |
+                  {{comment.comment}}
+                </div>
+              {{/each}}
+              <cmd.AddComment />
+            </td>
+            <td><button type="button" {{on "click" cmd.toggleAddComment}}>Add
+                Comment</button></td>
+          </tr>
+        </EditTask>
+      {{/each}}
+    </tbody>
+  </table>
 
-<h2 id="title">Welcome to Ember</h2>
+  {{outlet}}
 
-{{outlet}}
+</main>

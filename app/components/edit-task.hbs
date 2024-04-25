@@ -1,0 +1,11 @@
+{{#let
+  (hash
+    AddComment=(component
+      "add-comment" visible=this.showAddComment onSubmit=this.addComment
+    )
+    toggleAddComment=this.toggleAddComment
+  )
+  as |command|
+}}
+  {{yield command}}
+{{/let}}
